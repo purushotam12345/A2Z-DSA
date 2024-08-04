@@ -4,10 +4,8 @@ You are given an array ‘ARR’ of length ‘N’ consisting of only ‘0’s a
 
 Sample Input 1:
 2
-
 8
 0 1 1 0 0 1 1 1
-
 4
 0 1 1 0
 
