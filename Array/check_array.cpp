@@ -1,31 +1,63 @@
-#include<iostream>
+/* Maximum Consecutive Ones
+Problem statement
+You are given an array ‘ARR’ of length ‘N’ consisting of only ‘0’s and ‘1’s. Your task is to determine the maximum length of the consecutive number of 1’s.
+
+Sample Input 1:
+2
+
+8
+0 1 1 0 0 1 1 1
+
+4
+0 1 1 0
+
+Sample Output 1:
+3
+2
+*/
+
+#include <bits/stdc++.h>
 using namespace std;
 
-bool isSorted(int arr[], int size) {
-    for (int i = 1; i < size; ++i) {
-        // If any element is less than its predecessor, the array is not sorted
-        if (arr[i] < arr[i - 1]) {
-            return false;
+// Function to find and return the maximum length of the consecutive number of ones
+int consecutiveOnes(vector<int> &arr)
+{
+    int maximum = 0;
+    int count = 0;
+
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == 1)
+        {
+            count++;
+            maximum = max(maximum, count);
+        }
+        else
+        {
+            count = 0;
         }
     }
-    // If the loop completes without returning false, the array is sorted
-    return true;
+
+    return maximum;
 }
 
-int main() {
-    // Example array
-    int myArray[] = {1, 2, 3, 4, 5};
+// Driver Code
+int main()
+{
+    int n;
+    cout << "Enter Size: ";
+    cin >> n;
+    vector<int> arr(n);
 
-    // Get the size of the array
-    int size = sizeof(myArray) / sizeof(myArray[0]);
-
-    // Check if the array is sorted
-    if (isSorted(myArray, size)) {
-        cout << "The array is sorted in ascending order.\n";
-    } else {
-        cout << "The array is not sorted in ascending order.\n";
+    // Taking Input from user
+    cout << "Enter elements : " << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
     }
+
+    int length = consecutiveOnes(arr);
+    cout << "Maximum Consecutive Ones : " << length << endl;
 
     return 0;
 }
- 
